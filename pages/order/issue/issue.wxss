@@ -22,6 +22,7 @@
 
 .request_infos_label{
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .weui-cell {

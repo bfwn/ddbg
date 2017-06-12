@@ -7,35 +7,35 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarTitleText": "多地办公-投递服务",
+    "navigationBarTitleText": "多地办公",
     "navigationBarBackgroundColor": "#66cc99",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f8f8f8",
     "enablePullDownRefresh": "true"
   },
   "tabBar": {
-        "color":"#999999",
-        "selectedColor": "#66cc99",
-        "backgroundColor": "#ffffff",
-"list": [
-  {
-    "pagePath": "pages/order/show/show",
-    "text": "领任务",
-    "iconPath": "utils/package-grey.png",
-    "selectedIconPath": "utils/package-green.png"
-  },
-  {
-    "pagePath": "pages/order/issue/issue",
-    "text": "提需求",
-    "iconPath": "utils/file-grey.png",
-    "selectedIconPath": "utils/file-green.png"
-  },
-  {
-    "pagePath": "pages/order/rank/rank",
-    "text": "排行榜",
-    "iconPath": "utils/barchart-grey.png",
-    "selectedIconPath": "utils/barchart-green.png"
-  }
+    "color": "#999999",
+    "selectedColor": "#66cc99",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/order/show/show",
+        "text": "领任务",
+        "iconPath": "utils/package-grey.png",
+        "selectedIconPath": "utils/package-green.png"
+      },
+      {
+        "pagePath": "pages/order/issue/issue",
+        "text": "提需求",
+        "iconPath": "utils/file-grey.png",
+        "selectedIconPath": "utils/file-green.png"
+      },
+      {
+        "pagePath": "pages/order/rank/rank",
+        "text": "排行榜",
+        "iconPath": "utils/barchart-grey.png",
+        "selectedIconPath": "utils/barchart-green.png"
+      }
     ]
   }
 }

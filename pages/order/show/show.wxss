@@ -41,6 +41,7 @@
 .navigator-arrow {
   padding-right: 26rpx;
   position: relative;
+  margin-left: 10px;
 }
 .navigator-arrow:after {
   content: " ";

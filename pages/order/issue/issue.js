@@ -23,6 +23,8 @@ Page({
     index_arrAddr: 0,
 
     senddate:'',
+    senddate_style: 'color:grey;',
+    senddate_placehold:'请选择投递时间',
 
     description:'',
     description_placehold:'请输入投递对象的描述',
@@ -88,6 +90,7 @@ Page({
     console.log('senddate输入变化，当前值为',e.detail.value)
     this.setData({
       senddate: e.detail.value,
+      senddate_placehold:'',
     })
   },
 
@@ -107,6 +110,35 @@ Page({
       bonus: e.detail.value,
     })
   },
+
+  /**
+   *空值验证
+   */
+  checkEmpty:function(){
+    var flag = true;
+    if(!this.data.realname){
+      this.setData({
+        realname_style: 'border:2rpx solid red',
+        realname_placehold:'请填写姓名'
+      });
+      flag = false;
+    }
+    if (!this.data.phone){
+      this.setData({
+        phone_style: 'border:2rpx solid red',
+        phone_placehold: '请填写电话'
+      });
+      flag = false;
+    }
+    if (!this.data.senddate){
+      this.setData({
+        senddate_style: 'border:2rpx solid red',
+        senddate_placehold:'请选择时间',
+      });
+      flag = false;
+    }
+    return flag;
+  },
   
 
   bindIssueRequestBtn:function(e){
@@ -119,6 +151,11 @@ Page({
       return;
     }
     this.setData({ lastTapDiffTime1: curTime });
+
+    if (!this.checkEmpty()){
+      //空值检查不通过
+      return;
+    }
 
     wx.showToast({
       title: '正在创建任务',

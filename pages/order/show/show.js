@@ -21,7 +21,7 @@ Page({
     lastTapDiffTime: 0,  //记录刷新的上一次点击时间 
   },
 
-  bindGrabOrder: function (e) {
+  bindGrabOrder: function(e) {
     console.log("当前选中的：" + e.currentTarget.dataset.num);
 
     this.data.idx_package = e.currentTarget.dataset.num;
@@ -29,12 +29,12 @@ Page({
     console.log("任务id：" + this.data.packinfos[this.data.idx_package].objectId + "，发包人：" + this.data.packinfos[this.data.idx_package].realName);
     console.log("发包人头像url：" + this.data.packinfos[this.data.idx_package].sendImagUrl);
 
-    // 更新全局的任务id
+   // 更新全局的任务id
     app.globalData.currentTaskId = this.data.packinfos[this.data.idx_package].objectId;
 
     console.log("全局变量：" + app.globalData.currentTaskId);
 
-    // 跳转到抢任务页面
+   // 跳转到抢任务页面
     wx.navigateTo({
       url: '../grab/grab',
     })
@@ -44,7 +44,7 @@ Page({
     console.log("当前选中的：" + e.currentTarget.dataset.num);
 
     this.data.idx_hispackage = e.currentTarget.dataset.num;
-    console.log("任务id：" + this.data.hispackinfos[this.data.idx_hispackage].objectId + "，发包人：" + this.data.hispackinfos[this.data.idx_hispackage].realName + ",投递人为" + this.data.hispackinfos[this.data.idx_hispackage].delName);
+    console.log("任务id：" + this.data.hispackinfos[this.data.idx_hispackage].objectId + "，发包人：" + this.data.hispackinfos[this.data.idx_hispackage].realName+",投递人为" + this.data.hispackinfos[this.data.idx_hispackage].delName);
     var titletext = this.data.hispackinfos[this.data.idx_hispackage].delName + "已完成任务,获得" + this.data.hispackinfos[this.data.idx_hispackage].bonus + "!"
     // 弹窗
     /*wx.showToast({
@@ -76,39 +76,37 @@ Page({
       .descending('createdAt')
       .find()
       .then(function (t) {
-        console.log("待接单包裹共" + t.length + "件")
+        console.log("待接单包裹共"+t.length+"件")
 
         for (var i = 0; i < t.length; i++) {
           console.log("第" + i + "件包裹为" + t[i].get('content') + ",发件人为" + t[i].get('realName'));
-          console.log(t[i].get('sendDate'));
           if (!(t[i].get('sendDate'))) {
-            //var curDate = new Date();
-            //var nextDate = new Date(curDate.getTime() + 24 * 60 * 60 * 1000);
-            t[i].sendDate = t[i].get('createdAt').toLocaleDateString();
-            // + 24 * 60 * 60 * 1000).toLocaleDateString();
-            //t[i].sendDate = nextDate.toLocaleDateString();
-          }else{
-            t[i].sendDate = t[i].get('sendDate').toLocaleDateString();
+            t[i].sendDate = t[i].get('createdAt');
+          } 
+          var curdate = new Date();
+          var deldate = t[i].get('sendDate');
+          console.log("当前时间:" + curdate.valueOf() + ";派件时间:" + deldate.valueOf() );
+          if (curdate.valueOf() > (deldate.valueOf() + 24*3600*1000) ) {
+            console.log("当前时间:" + curdate.toLocaleDateString() + "大于派件时间:" + deldate.toLocaleDateString() + ",订单已经失效!");
+            continue;
           }
-
-          l = l.concat([{
-            wxName: t[i].get('wxName'),
-            updatedAt: t[i].get('updatedAt').toLocaleDateString() + " " + t[i].get('updatedAt').toLocaleTimeString(),
-            state: t[i].get('state'),
-            senderPhone: t[i].get('senderPhone'),
-            sendLocation: t[i].get('sendLocation'),
-            
-            sendDate: t[i].get('sendDate'),//.toLocaleDateString(),
-            realName: t[i].get('realName'),
-            objectId: t[i].get('objectId'),
-            desLocation: t[i].get('desLocation'),
-            delName: t[i].get('delName'),
-            createdAt: t[i].get('createdAt').toLocaleDateString() + " " + t[i].get('createdAt').toLocaleTimeString(),
-            content: t[i].get('content'),
-            bonus: t[i].get('bonus'),
-            sendImagUrl: t[i].get('sendImagUrl'),
-            delImagUrl: t[i].get('delImagUrl'),
-          }]);
+            l = l.concat([{
+              wxName: t[i].get('wxName'),
+              updatedAt: t[i].get('updatedAt').toLocaleDateString() + " " + t[i].get('updatedAt').toLocaleTimeString(),
+              state: t[i].get('state'),
+              senderPhone: t[i].get('senderPhone'),
+              sendLocation: t[i].get('sendLocation'),
+              sendDate: t[i].get('sendDate').toLocaleDateString(),
+              realName: t[i].get('realName'),
+              objectId: t[i].get('objectId'),
+              desLocation: t[i].get('desLocation'),
+              delName: t[i].get('delName'),              
+              createdAt: t[i].get('createdAt').toLocaleDateString() + " " + t[i].get('createdAt').toLocaleTimeString(),
+              content: t[i].get('content'),
+              bonus: t[i].get('bonus'),
+              sendImagUrl: t[i].get('sendImagUrl'),
+              delImagUrl: t[i].get('delImagUrl'),
+            }]);
 
         }
         that.setData({
@@ -134,6 +132,9 @@ Page({
         console.log("已完成包裹共" + t.length + "件")
 
         for (var i = 0; i < t.length; i++) {
+          if (!(t[i].get('bonus'))) {
+            t[i].bonus = "神马木有";
+          } 
           console.log("第" + i + "件包裹为" + t[i].get('content') + ",发件人为" + t[i].get('realName') + ",投递人为" + t[i].get('delName'))
           hisl = hisl.concat([{
             wxName: t[i].get('wxName'),
@@ -152,7 +153,7 @@ Page({
             sendImagUrl: t[i].get('sendImagUrl'),
             delImagUrl: t[i].get('delImagUrl'),
           }]);
-
+             
         }
         that.setData({
           hispackinfos: hisl
@@ -171,7 +172,7 @@ Page({
   },
 
 
-  loginAndFetchPackinfos: function () {
+  loginAndFetchPackinfos: function() {
     /*
     return new AV.Query('PackInfo')
       .descending('createdAt')
@@ -192,7 +193,7 @@ Page({
           .find()
           .then(this.setPackinfos)
       }).catch(error => console.error(error.message));
-
+    
   },
 
   setPackinfos: function (packinfos) {
@@ -223,14 +224,14 @@ Page({
     //todo end
 
     //this.loginAndFetchPackinfos();
-    this.loadPacks();
+    //this.loadPacks();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
@@ -245,14 +246,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+  
   },
 
   /**
@@ -280,13 +281,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+  
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+  
   }
 })

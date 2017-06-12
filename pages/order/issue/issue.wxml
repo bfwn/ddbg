@@ -9,7 +9,7 @@
             <view class="request_infos_label">真实姓名</view>
         </view> 
         <view class="weui-cell__bd">
-            <input placeholder="{{realname_placehold}}" bindinput="bindInputName" value='{{realname}}' maxlength="5" style='text-align:right;'/>
+            <input placeholder="{{realname_placehold}}" bindinput="bindInputName" value='{{realname}}' maxlength="10" style='text-align:right;{{realname_style}}'/>
         </view> 
     </view>
     <view class="weui-cell weui-cell_input">
@@ -17,7 +17,7 @@
             <view class="request_infos_label" > 手 机 号</view>
         </view>
         <view class="weui-cell__bd">
-            <input placeholder="{{phone_placehold}}" bindinput="bindInputPhone" value='{{phone}}' maxlength="11" style='text-align:right;'/>
+            <input placeholder="{{phone_placehold}}" bindinput="bindInputPhone" value='{{phone}}' maxlength="11" style='text-align:right;{{phone_style}}'/>
         </view>
     </view>
      <view class="weui-cell weui-cell_input">
@@ -48,7 +48,8 @@
         </view>
         <view class="weui-cell__bd">
             <picker style='text-align:right' mode="date" value="{{senddate}}" start="2017-06-01" end="2020-06-01" bindchange="bindSendDateChange">
-                <text class="weui-input" style='color:#999999;margin-right:10px'>{{senddate}}</text>
+            <text style="{{senddate_style}}">{{senddate_placehold}}</text>
+                <text class="weui-input" style='color:#999999;margin-right:10px;'>{{senddate}}</text>
                     <text>></text>
             </picker>
         </view>

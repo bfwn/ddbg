@@ -1,0 +1,76 @@
+<!--issue.wxml-->
+<view style='background-color:#f8f8f8'>
+<view class="issueinfo">
+    <text class="issueinfo-discription">请填写投递需求信息</text>
+</view>
+<view class="request_infos" style='background-color:#ffffff'>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label">真实姓名</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <input placeholder="{{realname_placehold}}" bindinput="bindInputName" value='{{realname}}' maxlength="5" style='text-align:right;'/>
+        </view> 
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label" > 手 机 号</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input placeholder="{{phone_placehold}}" bindinput="bindInputPhone" value='{{phone}}' maxlength="11" style='text-align:right;'/>
+        </view>
+    </view>
+     <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label"> 出 发 地</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <picker style='text-align:right' mode="selector" bindchange="bindGoAddrChange" value="{{index_goAddr}}" range="{{array_goAddr}}">
+                <text style='color:#999999;margin-right:10px'>{{array_goAddr[index_goAddr]}}</text>
+                <text>></text>
+            </picker>
+        </view> 
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label"> 目 的 地</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <picker style='text-align:right' mode="selector" bindchange="bindarrAddrChange" value="{{index_arrAddr}}" range="{{array_arrAddr}}">
+                <text style='color:#999999;margin-right:10px'>{{array_arrAddr[index_arrAddr]}}</text>
+                <text>></text>
+            </picker>
+        </view> 
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label">投递时间</view>
+        </view>
+        <view class="weui-cell__bd">
+            <picker style='text-align:right' mode="date" value="{{senddate}}" start="2017-06-01" end="2020-06-01" bindchange="bindSendDateChange">
+                <text class="weui-input" style='color:#999999;margin-right:10px'>{{senddate}}</text>
+                    <text>></text>
+            </picker>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label">需求描述</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <input placeholder="{{description_placehold}}" bindinput="bindInputDescription" value='{{description}}' maxlength="50" style='text-align:right;'/>
+        </view> 
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="request_infos_label">悬赏内容</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <input placeholder="{{bonus_placehold}}" bindinput="bindInputBonus" value='{{bonus}}' maxlength="50" style='text-align:right;'/>
+        </view> 
+    </view> 
+</view>
+<view>
+    <button class='request_btn' size="default" bindtap="bindIssueRequestBtn" hover-class="btn_tap">创建任务</button>
+</view>
+</view>

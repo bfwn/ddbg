@@ -1,0 +1,32 @@
+<!--rank.wxml-->
+<view>
+  <text class='rank_title'>发布者排行榜</text>
+  <view class="orderShowInfo" wx:for="{{senderRank}}" wx:for-item="senderRankItem" wx:key="realName">
+     <view class='sender_base'>
+     <text class='rank_index'>{{index + 1}}</text>
+     <image class="image_style" mode="aspectFit" src="{{senderRankItem.sendImagUrl}}"></image>
+        <view class="description1">   
+            <text class='text_base'>{{senderRankItem.realName}}</text>
+            <text class='text_detail'>发布数量： {{senderRankItem.sendPack}}</text>      
+        </view>
+     </view> 
+  </view>
+ </view>
+
+
+<view>
+<text class='rank_title'>接单者排行榜</text>
+  <view class="orderShowInfo" wx:for="{{deliverRank}}" wx:for-item="deliverRankItem" wx:key="realName">
+     <view class='sender_base'>
+     <text class='rank_index'>{{index + 1}}</text>
+     <image class="image_style" mode="aspectFit" src="{{deliverRankItem.delImagUrl}}"></image>
+        <view class="description1">
+            <text class='text_base'>{{deliverRankItem.realName}}</text>
+            <text class='text_detail'>接单数量： {{deliverRankItem.sendPack}}</text>      
+        </view>
+     </view>    
+  </view>
+ </view>
+
+
+

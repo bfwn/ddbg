@@ -1,0 +1,27 @@
+<!--show.wxml-->
+<view>
+ <text style="color: #999999; font-size: 12px; margin-left:12px;">温馨提示：请下拉刷新，选择任务</text>
+  <view class="orderShowInfo" wx:for="{{packinfos}}" wx:for-item="packinfo" wx:for-index="idx_package" wx:key="objectId" bindtap="bindGrabOrder" data-num="{{idx_package}}">
+     <view class='sender_base'>
+        <image class="image_style" mode="aspectFit" src="{{packinfo.sendImagUrl}}"></image>
+        <view class="description1">
+            <text class='text_base'>{{packinfo.realName}}发布</text>   
+            <text class='text_detail'>{{packinfo.sendLocation}}出发-->前往{{packinfo.desLocation}}</text>      
+        </view>
+     </view>
+     <view class="navigator-arrow"></view>     
+  </view>
+  <view>
+    <text style="color: #43CD80; font-size: 12px; margin-left:12px;">以下任务已经处理</text>
+  </view>
+  <view class="hisorderShowInfo" wx:for="{{hispackinfos}}" wx:for-item="hispackinfo" wx:for-index="idx_hispackage" wx:key="objectId" bindtap="bindHisOrder"  data-num="{{idx_hispackage}}">
+     <view class='sender_base'>
+        <image class="image_style" mode="aspectFit" src="{{hispackinfo.sendImagUrl}}"></image>
+        <view class="description1">
+            <text class='text_base'>{{hispackinfo.realName}}发布</text>
+            <text class='text_createdtime'>更新时间 {{hispackinfo.updatedAt}}</text>
+            <text class='text_detail'>{{hispackinfo.delName}}投递宝贝由{{hispackinfo.sendLocation}}到{{hispackinfo.desLocation}}</text>      
+        </view>
+     </view> 
+  </view>
+</view>

@@ -1,0 +1,92 @@
+<!--grab.wxml-->
+<view style='background-color:#f8f8f8'>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userImg}}" background-size="cover"></image>
+  </view>
+  <view class='pack_title'>物品投递</view>
+  <view class='PackrInfo' style='background-color:#ffffff'>
+    <view class='text_style' style='margin-left:5px'>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">发布人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.realName}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">任务描述</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.content}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">投递时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.sendDate}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">悬赏</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.bonus}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">创建于</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.createdAt}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">联系电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.senderPhone}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">发起地点</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style='color:#999999;float:right;'>{{myOrder.sendLocation}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">目的地</view>
+        </view>
+        <view class="weui-cell__bd" style='float:right;'>
+          <text style='color:#999999;float:right;'>{{myOrder.desLocation}}</text>
+        </view>
+      </view>
+      <view class='pack_title'>我要接单</view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="pack_infor_label">我的姓名</view>
+        </view>
+        <view class="weui-cell__bd" style='float:right;'>
+          <input placeholder="{{name_placehold}}" bindinput="bindInputName" value='{{name}}' style='text-align:right;{{name_style}}' />
+        </view>
+      </view>
+    </view>
+    <image class="image_style_1" src="../../../utils/phone.jpg" bindtap="bindCall" data-num="{{myOrder.senderPhone}}">\n</image>
+  </view>
+</view>
+
+<view class="page_btn">
+  <button class="page_btn_accept" bindtap="bindAcceptBtn" hover-class="btn_tap">接 单</button>
+</view>
+<!--<view class="page_btn">
+  <button class="page_btn_goback" bindtap="bindBackBtn" hover-class="btn_tap">返 回</button>
+</view>-->

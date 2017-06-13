@@ -10,9 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //packinfos: [],
+    packinfos: [],
     idx_package: 0,
-    //hispackinfos: [],
+    hispackinfos: [],
     idx_hispackage: 0,
 
     //userImg: "",   //发单者头像
@@ -135,6 +135,9 @@ Page({
           if (!(t[i].get('bonus'))) {
             t[i].bonus = "神马木有";
           } 
+          if (!(t[i].get('sendDate'))) {
+            t[i].sendDate = t[i].get('createdAt');
+          } 
           console.log("第" + i + "件包裹为" + t[i].get('content') + ",发件人为" + t[i].get('realName') + ",投递人为" + t[i].get('delName'))
           hisl = hisl.concat([{
             wxName: t[i].get('wxName'),
@@ -224,7 +227,7 @@ Page({
     //todo end
 
     //this.loginAndFetchPackinfos();
-    //this.loadPacks();
+    this.loadPacks();
   },
 
   /**
@@ -239,7 +242,7 @@ Page({
    */
   onShow: function () {
     console.log('onShow...');
-    this.loadPacks();
+    //this.loadPacks();
   },
 
   /**
@@ -264,9 +267,9 @@ Page({
     var curTime = Date.now();
     var lastTime = this.data.lastTapDiffTime;
 
-    if (lastTime > 0 && (curTime - lastTime < 30000)) {
+    if (lastTime > 0 && (curTime - lastTime < 5000)) {
       //两次时间间隔小于30000毫秒，认为是连击事件
-      console.log("连续刷新时间在30s内,暂不刷新");
+      console.log("连续刷新时间在5s内,暂不刷新");
       return;
     }
     this.setData({ lastTapDiffTime: curTime });

@@ -1,15 +1,16 @@
 <!--issue.wxml-->
 <view style='background-color:#f8f8f8'>
 <view class="issueinfo">
-    <text class="issueinfo-discription">请填写投递需求信息</text>
+    <image class="issueinfo-avatar" src="{{avatarurl}}" background-size="cover"></image>
+    <text class="issueinfo-discription">请{{wxname}}填写投递需求信息</text>
 </view>
 <view class="request_infos" style='background-color:#ffffff'>
     <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-            <view class="request_infos_label">真实姓名</view>
+            <view class="request_infos_label"> 姓 　 名</view>
         </view> 
         <view class="weui-cell__bd">
-            <input placeholder="{{realname_placehold}}" bindinput="bindInputName" value='{{realname}}' maxlength="10" style='text-align:right;{{realname_style}}'/>
+            <input placeholder="{{realname_placehold}}" bindinput="bindInputName" value='{{realname}}' maxlength="15" style='text-align:right;{{realname_style}}'/>
         </view> 
     </view>
     <view class="weui-cell weui-cell_input">
@@ -37,6 +38,7 @@
         </view> 
         <view class="weui-cell__bd">
             <picker style='text-align:right' mode="selector" bindchange="bindarrAddrChange" value="{{index_arrAddr}}" range="{{array_arrAddr}}">
+                <text style="{{arrAddr_reminder_style}}">{{arrAddr_reminder}}</text>
                 <text style='color:#999999;margin-right:10px'>{{array_arrAddr[index_arrAddr]}}</text>
                 <text>></text>
             </picker>
@@ -48,8 +50,8 @@
         </view>
         <view class="weui-cell__bd">
             <picker style='text-align:right' mode="date" value="{{senddate}}" start="2017-06-01" end="2020-06-01" bindchange="bindSendDateChange">
-            <text style="{{senddate_style}}">{{senddate_placehold}}</text>
-                <text class="weui-input" style='color:#999999;margin-right:10px;'>{{senddate}}</text>
+            <text style="{{senddate_placehold_style}}">{{senddate_placehold}}</text>
+                <text class="weui-input" style="{{senddate_style}}">{{senddate}}</text>
                     <text>></text>
             </picker>
         </view>
@@ -72,6 +74,6 @@
     </view> 
 </view>
 <view>
-    <button class='request_btn' size="default" bindtap="bindIssueRequestBtn" hover-class="btn_tap">创建任务</button>
+    <button class='request_btn' size="default" bindtap="bindIssueRequestBtn" hover-class="btn_tap">提 　 交</button>
 </view>
 </view>

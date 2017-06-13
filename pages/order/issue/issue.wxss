@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.userinfo-avatar {
+.issueinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
@@ -21,12 +21,12 @@
 }
 
 .request_infos_label{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
 }
 
 .weui-cell {
-  padding: 10px 15px;
+  padding: 20rpx 30rpx;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -41,11 +41,11 @@
   content: " ";
   position: absolute;
   top: 0;
-  right: 15px;
-  height: 1px;
+  right: 30rpx;
+  height: 2rpx;
   border-top: 1rpx solid #D9D9D9;
   color: #D9D9D9;
-  left: 15px;
+  left: 30rpx;
 }
 
 .weui-cell__bd {
@@ -55,10 +55,10 @@
 }
 
 .request_btn{
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 20px;
+    margin-top: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-size: 40rpx;
     background-color: #66cc99; 
     color:white;
     

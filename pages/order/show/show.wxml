@@ -1,6 +1,6 @@
 <!--show.wxml-->
 <view>
- <text style="color: #999999; font-size: 12px; margin-left:12px;">温馨提示：请下拉刷新，选择任务</text>
+ <text style="color: #999999; font-size: 12px; margin-left:12px;">温馨提示：下拉可刷新列表，点击可领取任务</text>
   <view class="orderShowInfo" wx:for="{{packinfos}}" wx:for-item="packinfo" wx:for-index="idx_package" wx:key="objectId" bindtap="bindGrabOrder" data-num="{{idx_package}}">
      <view class='sender_base'>
         <image class="image_style" mode="aspectFit" src="{{packinfo.sendImagUrl}}"></image>

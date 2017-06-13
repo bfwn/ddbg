@@ -12,7 +12,10 @@ Page({
     orderId: "",
     myOrder: [],
     //stat: "X",
-    name: "",
+    //name: "请输入姓名",
+    name: '',
+    name_placehold: '请输入姓名',
+    name_style: '',
     userImg: "",
   },
   /*
@@ -32,6 +35,7 @@ Page({
    * 接单人姓名输入
    */
   bindInputName: function (e) {
+
     this.setData({
       name: e.detail.value
     })
@@ -48,7 +52,8 @@ Page({
    *检查名字是否为空，为空提醒
    */
   checkName: function () {
-    if (!this.data.name) {
+    
+    if (!(this.Trim(this.data.name, 'g'))) {
       this.setData({
         name_style: 'border:2rpx solid red',
         name_placehold: '请留姓名',
@@ -113,7 +118,7 @@ Page({
 
                 wx.showModal({
                   title: '接单成功',
-                  content: '感谢您的服务,大赞！',
+                  content: '感谢' + dName + '提供服务,大赞！',
                   showCancel: false,
                   //页面定向到信息展示页面
                   success: function (res) {
@@ -122,7 +127,7 @@ Page({
                       wx.switchTab({
                         url: '../show/show',
                       })
-                    } 
+                    }
                   }
                 })
               }
@@ -175,7 +180,7 @@ Page({
      */
     var ddName = wx.getStorageSync('dName');
     this.setData({
-      name: ddName
+      name: (this.Trim(ddName, 'g'))
     })
 
     console.log(app.globalData.userInfo);
@@ -192,6 +197,15 @@ Page({
         })*/
   },
 
+  Trim: function (str, is_global) {
+
+    var result;
+    result = str.replace(/(^\s+)|(\s+$)/g, "");
+    if (is_global.toLowerCase() == "g") {
+      result = result.replace(/\s/g, "");
+    }
+    return result;
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

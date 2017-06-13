@@ -3,9 +3,9 @@
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userImg}}" background-size="cover"></image>
   </view>
-  <view class='pack_title'>物品投递</view>
-  <view class='PackrInfo' style='background-color:#ffffff'>
-    <view class='text_style' style='margin-left:5px'>
+  <view class='pack_title'>投递信息</view>
+  <!--<view class='PackrInfo' style='background-color:#ffffff'>-->
+    <view class='text_style' style='margin-left:5px;margin-right:20px'>
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="pack_infor_label">发布人</view>
@@ -40,19 +40,12 @@
       </view>
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="pack_infor_label">创建于</view>
-        </view>
-        <view class="weui-cell__bd">
-          <text style='color:#999999;float:right;'>{{myOrder.createdAt}}</text>
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
           <view class="pack_infor_label">联系电话</view>
         </view>
         <view class="weui-cell__bd">
           <text style='color:#999999;float:right;'>{{myOrder.senderPhone}}</text>
         </view>
+        <view><image class="image_style_1" src="../../../utils/phone.jpg" bindtap="bindCall" data-num="{{myOrder.senderPhone}}">\n</image></view>
       </view>
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
@@ -80,8 +73,8 @@
         </view>
       </view>
     </view>
-    <image class="image_style_1" src="../../../utils/phone.jpg" bindtap="bindCall" data-num="{{myOrder.senderPhone}}">\n</image>
-  </view>
+    <!--<image class="image_style_1" src="../../../utils/phone.jpg" bindtap="bindCall" data-num="{{myOrder.senderPhone}}">\n</image>
+  </view>-->
 </view>
 
 <view class="page_btn">

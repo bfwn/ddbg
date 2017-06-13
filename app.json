@@ -11,7 +11,7 @@
     "navigationBarBackgroundColor": "#66cc99",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f8f8f8",
-    "enablePullDownRefresh": "true"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#999999",
@@ -26,7 +26,7 @@
       },
       {
         "pagePath": "pages/order/issue/issue",
-        "text": "提需求",
+        "text": "建任务",
         "iconPath": "utils/file-grey.png",
         "selectedIconPath": "utils/file-green.png"
       },
